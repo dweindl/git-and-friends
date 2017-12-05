@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Git and her friends - CCM Coding Camp, ICB, 11.12.2017</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+<!--  BEGIN SLIDES -->
+
+# Git and her friends
+
+--- a basic introduction
+
+### Daniel Weindl 
+
+### CCM Coding Camp, ICB, 11.12.2017
+
+
+---
+
+
+# Agenda
+
+1. Version control systems
+2. Git vs. Git(hub|lab)
+3. Basic usage
+4. Practical considerations
+5. "Advanced" features
+6. Further reading
+
+
+---
+
+
+# Versioning
+
+.center[![PhD Comics: A story told in filen ames](http://phdcomics.com/comics/archive/phd052810s.gif)]
+
+
+---
+
+
+# Version control systems (VCS)
+
+### distributed 
+- git (https://git-scm.com/)
+- mercurial (https://www.mercurial-scm.org/)
+
+### centralized
+- svn (https://subversion.apache.org/)
+- cvs
+
+
+---
+
+
+# VCS features
+
+- versioning
+- branching
+- merging
+- synchronisation
+- unique IDs
+- history
+- ...
+
+
+---
+
+
+# Git, github, gitlab, ...?
+
+- github (enterprise)
+- gitlab
+- bitbucket
+- sourceforge?
+
+
+Researchers can get a free github subscription for 2 years (renewable): https://education.github.com/
+(+extra bonuses for students)
+
+
+---
+
+
+# Using git
+
+Various interfaces exist:
+
+- `git`
+- `gitk`
+- `git-gui`
+- GitWeb
+- git(lab|hub)
+- IDE integrations
+- ...
+
+
+---
+
+
+# What git(hub|lab) provides in addition to git
+
+- Hosting
+- Web-gui
+- Issue tracking 
+- Milestones
+- Access control
+- (Simple) integrations (e.g. for CI/CD)
+- Code reviews
+- Releases
+- Statistics, graphs
+- Wiki
+- ...
+
+
+---
+
+
+# Hands-on:
+
+Fork the repository
+
+Getting the slides:
+
+`$ git clone https://github.com/dweindl/git-and-friends.git`
+
+Setting up git:
+`$ git config --global user.name "Daniel Weindl"`
+
+`$ git config --global user.email "daniel.weindl@helmholtz-muenchen.de"`
+
+
+---
+
+
+# Creating a repository
+
+How this repository was created:
+
+```
+$ git init
+$ git add versioning_intro.html
+$ git commit -m "Initial commit"
+$ git remote add origin git@github.com:dweindl/git-and-friends.git
+$ git push -u origin master
+```
+
+---
+
+
+# Git
+
+### What git is (for)
+
+- scalable versioning of any kind of text files
+- collaborative (parallel) editing 
+- extendable, customizable
+
+### What git is not (for)
+
+- binary files
+- large files
+
+
+---
+
+
+# Further reading (I)
+
+- `$ man git`
+- Another introduction to git<br/>
+  - https://try.github.io/
+  - https://guides.github.com/activities/hello-world/
+  - http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668
+- Pro git book<br/> https://git-scm.com/book/en/v2
+- RStudio git integration<br/> http://r-bio.github.io/intro-git-rstudio/
+- Eclipse git integration<br/> http://www.vogella.com/tutorials/EclipseGit/article.html
+- Git extension for dealing with dependencies<br/>https://github.com/git-commands/git-subrepo
+- Semantic versioning<br/>https://semver.org/
+
+
+---
+
+
+# Further reading (II)
+- Useful github integrations
+  - https://travis-ci.org/
+  - https://app.shippable.com/
+- (One of many) Cheatsheets</br> https://zeroturnaround.com/rebellabs/git-commands-and-best-practices-cheat-sheet/
+- Handling large files</br>
+  https://git-lfs.github.com/
+
+  
+<!--  END SLIDES -->
+  
+  </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
