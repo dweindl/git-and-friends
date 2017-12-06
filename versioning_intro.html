@@ -49,7 +49,7 @@ class: center, middle
 
 # Versioning
 
-.center[![PhD Comics: A story told in filen ames](http://phdcomics.com/comics/archive/phd052810s.gif)]
+.center[![PhD Comics: A story told in filenames](http://phdcomics.com/comics/archive/phd052810s.gif)]
 
 
 ---
@@ -85,30 +85,13 @@ class: center, middle
 
 # Git, github, gitlab, ...?
 
-- github (enterprise)
-- gitlab
-- bitbucket
-- sourceforge?
+- Github (https://github.com/)
+- Gitlab (https://about.gitlab.com/)
+- Bitbucket (https://bitbucket.org/)
 
 
 Researchers can get a free github subscription for 2 years (renewable): https://education.github.com/
 (+extra bonuses for students)
-
-
----
-
-
-# Using git
-
-Various interfaces exist:
-
-- `git`
-- `gitk`
-- `git-gui`
-- GitWeb
-- git(lab|hub)
-- IDE integrations
-- ...
 
 
 ---
@@ -132,18 +115,35 @@ Various interfaces exist:
 ---
 
 
-# Hands-on:
+# Using git
 
-Fork the repository
+Various interfaces exist:
 
-Getting the slides:
+- `git`
+- `gitk`
+- `git-gui`
+- GitWeb
+- git(lab|hub)
+- IDE integrations
+- ...
+
+
+---
+
+
+# Hands-on: Getting the slides
 
 `$ git clone https://github.com/dweindl/git-and-friends.git`
 
-Setting up git:
-`$ git config --global user.name "Daniel Weindl"`
+```
+Cloning into 'git-and-friends'...
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+```
 
-`$ git config --global user.email "daniel.weindl@helmholtz-muenchen.de"`
+-> Now you have a clone of the whole repository including all history and branches on your local machine
 
 
 ---
@@ -151,15 +151,61 @@ Setting up git:
 
 # Creating a repository
 
-How this repository was created:
+How the above repository was created:
 
 ```
 $ git init
+Initialized empty Git repository in /home/dweindl/Downloads/ccm_versioning_intro/.git/
+
 $ git add versioning_intro.html
 $ git commit -m "Initial commit"
+
+[master (root-commit) 6e88cfb] Initial commit
+ 1 file changed, 219 insertions(+)
+ create mode 100644 versioning_intro.html
+
 $ git remote add origin git@github.com:dweindl/git-and-friends.git
 $ git push -u origin master
+
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 2.03 KiB | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:dweindl/git-and-friends.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
 ```
+
+
+---
+
+
+# Hands on: Create your own repository
+
+Setting up git:
+`$ git config --global user.name "Daniel Weindl"`
+
+`$ git config --global user.email "daniel.weindl@helmholtz-muenchen.de"`
+
+- Create a repository on github
+- Clone the remote repository or initialize a local one and push to github
+
+
+
+---
+
+
+# Git basics
+
+<img src="https://git-scm.com/images/about/index1@2x.png" style="width:50%" alt="working directory, staging area, repository">
+
+# TODO: 
+- commits, tags, messages
+- branches
+- file hash, commit hash
+- `.git`
+
 
 ---
 
@@ -169,13 +215,103 @@ $ git push -u origin master
 ### What git is (for)
 
 - scalable versioning of any kind of text files
-- collaborative (parallel) editing 
+- light-weight branching and merging
+- collaborative (parallel) editing
 - extendable, customizable
+- fun to use
 
 ### What git is not (for)
 
 - binary files
-- large files
+- large files (see *Further reading*)
+
+
+---
+
+
+# Hands-on: Branching and github pull-requests
+
+On https://github.com/dweindl/git-and-friends, create an issue so I can see your user name and add you as collaborator to get push access
+
+In the slide-repository:
+- Create a new branch<br/>
+  `$ git checkout -b test-yourname`
+- Add your name to `participants.md`
+- Commit your changed with a commit message<br/>
+  `$ git commit -m "Add my name" participants.md`
+- Push your changes to github<br/>
+  `$ git push -u test-yourname origin`
+- Create a pull request on https://github.com/dweindl/git-and-friends
+- Merge
+- Delete the merged branch
+- Checkout master `$ git checkout master` 
+- Pull the changes from the remote repository `$ git pull`
+- Look at the history on github or using `$ git whatchanged`
+
+Alternatively: Find some type in the slides, open an issue describing it, correct it and create a pull request
+
+
+---
+
+
+# Every day advice
+
+- commit early, commit often
+- make small commits
+- `.gitignore` (Templates: https://github.com/github/gitignore) 
+- commit message: 'closes #' , 'fixes #' 
+
+## Collaborative work?
+- agree on a branching model
+- `master` branch should always work
+- protect master
+- code reviews are very valuable
+- and so is automated testing
+- commit, push, merge often
+- `git blame`
+- git flow, gitlab flow, package
+- don't change published history (git rebase)
+https://docs.gitlab.com/ce/workflow/gitlab_flow.html
+
+
+---
+
+
+# Gitlab DOs and DONTs
+
+## Do
+
+- Choose a licencse for public repos
+- Add a README file
+
+## Don't
+
+- put confidential data or passwords into public repos
+
+
+---
+
+
+# "Advanced" features
+
+
+### git
+- rebasing, tags, ...
+- managing repository dependencies<br/>
+  `git submodule`, `git subtree`, `git subrepo`
+- git hooks for automated actions on `commit`, `pull`, ...
+ 
+
+### github/gitlab
+
+- integrations and web hooks
+  - Continuous integration
+  - Continuous delivery
+  - Test coverage
+  
+  e.g. Travis-CI, Shippable, AppVeyor, Coveralls, ...
+
+- code reviews
 
 
 ---
